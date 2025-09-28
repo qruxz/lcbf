@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Send, FileText, Bot, User } from 'lucide-react';
+import { Send, Bot, User } from 'lucide-react';
 import './App.css';
+
+const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:8000";
 
 const App = () => {
   const [messages, setMessages] = useState([
@@ -39,7 +41,7 @@ const App = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8000/chat', {
+      const response = await fetch(`${API_BASE}/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -98,7 +100,6 @@ const App = () => {
           <h1 className="text-4xl font-bold text-white mb-2">
             LCB ChatBot 🌱
           </h1>
-        
         </div>
 
         {/* Main Chat Container */}
@@ -126,9 +127,7 @@ const App = () => {
             {messages.map((message) => (
               <div
                 key={message.id}
-                className={`flex items-start gap-3 ${
-                  message.isBot ? 'flex-row' : 'flex-row-reverse'
-                }`}
+                className={`flex items-start gap-3 ${message.isBot ? 'flex-row' : 'flex-row-reverse'}`}
               >
                 <div
                   className={`w-8 h-8 rounded-full flex items-center justify-center ${
@@ -166,9 +165,7 @@ const App = () => {
                     </div>
                   )}
                   <div
-                    className={`text-xs mt-1 ${
-                      message.isBot ? 'text-gray-500' : 'text-white/70'
-                    }`}
+                    className={`text-xs mt-1 ${message.isBot ? 'text-gray-500' : 'text-white/70'}`}
                   >
                     {formatTime(message.timestamp)}
                   </div>
