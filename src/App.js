@@ -8,7 +8,7 @@ const App = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "नमस्ते! मैं NavyaKosh चैटबॉट हूं। आप मुझसे PDF से संबंधित कोई भी प्रश्न हिंदी या अंग्रेजी में पूछ सकते हैं।\n\nHello! I'm NavyaKosh ChatBot. You can ask me any questions related to PDFs in Hindi or English.",
+      text: "नमस्ते! मैं LCB चैटबॉट हूं। आप मुझसे PDF से संबंधित कोई भी प्रश्न हिंदी या अंग्रेजी में पूछ सकते हैं।\n\nHello! I'm NavyaKosh ChatBot. You can ask me any questions related to LCB Fertilizers in Hindi or English.",
       isBot: true,
       timestamp: new Date()
     }
@@ -198,7 +198,7 @@ const App = () => {
                   value={inputMessage}
                   onChange={(e) => setInputMessage(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="अपना सवाल यहाँ लिखें... / Type your question here..."
+                  placeholder="Type your question here..."
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   rows="2"
                   disabled={isLoading}
